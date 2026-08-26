@@ -9,8 +9,9 @@ jako bramka: Claude Code → ollama (127.0.0.1:11434) → modele cloud z konta o
 ## Pliki
 - `build-ollama.sh` — pełny skrypt budowy (pobiera llama.cpp pin b10488, CMake configure
   z flagami CPU, build równoległy, test serve). Uruchamianie: ./build-ollama.sh
-- `ollama/` — klon upstream (github.com/ollama/ollama, tag v0.33.0-rc2) z lokalnymi patchami
-  w `cmd/launch/claude.go`; NIE jest częścią tego repo (.gitignore)
+- `ollama/` — git submodule: fork KrzysztofKowalski/ollama (branch `ol-has`), v0.33.0-rc2
+  + patche w `cmd/launch/claude.go`. Klon: `git submodule update --init --recursive`
+- `README.md` — opis projektu (EN)
 
 ## Budowa
 Wymagane: go >= 1.26, cmake, ninja. `./build-ollama.sh` robi wszystko; log w build-ollama.log.
